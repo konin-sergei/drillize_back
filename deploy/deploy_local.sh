@@ -1,8 +1,8 @@
 # Deploy local
 #set -x
 
-LOCAL_DIR="/my/src/retolu_back"
-REMOTE_DIR="/var/www/retolu_back"
+LOCAL_DIR="/my/src/drillize_back"
+REMOTE_DIR="/var/www/drillize_back"
 
 # Загружаем переменные окружения
 source "${LOCAL_DIR}/deploy/.env.deploy" || { echo "Failed to load .env.deploy"; exit 1; }
@@ -28,7 +28,7 @@ sshpass -p $SSH_PWD ssh $SSH_USER@$SSH_IP "bash ${REMOTE_DIR}/deploy/deploy_serv
 
 # Выводим URL для проверки
 echo "http://${SSH_IP}:8000/"
-echo "https://retolu.com"
+echo "https://drillize.com"
 
 # to do rename path ------ +
 #echo 'copy backup'

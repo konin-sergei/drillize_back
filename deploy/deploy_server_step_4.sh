@@ -1,5 +1,5 @@
-LOCAL_DIR="/my/src/retolu_back"
-REMOTE_DIR="/var/www/retolu_back"
+LOCAL_DIR="/my/src/drillize_back"
+REMOTE_DIR="/var/www/drillize_back"
 
 #source ${LOCAL_DIR}/deploy/.env.deploy
 #

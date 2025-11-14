@@ -2,7 +2,7 @@
 # Deploy remote
 #set -x
 
-REMOTE_DIR="/var/www/retolu_back"
+REMOTE_DIR="/var/www/drillize_back"
 
 cd ${REMOTE_DIR}
 
@@ -10,7 +10,7 @@ echo 'git pull'
 git pull origin main
 
 #source ${REMOTE_DIR}/venv/bin/activate
-source /my/venvs/retolu/bin/activate
+source /my/venvs/drillize/bin/activate
 
 # echo 'start backup'
 # ${REMOTE_DIR}/venv/bin/python ${REMOTE_DIR}/manage.py command_backup
