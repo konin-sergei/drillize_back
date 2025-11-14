@@ -12,7 +12,7 @@ SupplementaryGroups=nginx
 WorkingDirectory=/var/www/drillize_back/
 ExecStart=/my/venvs/drillize/bin/python -m uvicorn main:app \
 --host 0.0.0.0 \
---port 7050 \
+--port 8050 \
 --log-config /var/www/drillize_back/conf/logging/logging.conf \
 --access-log
 
