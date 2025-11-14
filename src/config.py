@@ -59,23 +59,34 @@ class Settings(BaseSettings):
 # Создаём экземпляр настроек
 settings = Settings()
 
+# Устанавливаем значения по умолчанию для пустых директорий
+if not settings.LOG_DIR:
+    settings.LOG_DIR = os.path.join(BASE_DIR, 'log')
+
+if not settings.UPLOAD_DIRECTORY:
+    settings.UPLOAD_DIRECTORY = os.path.join(BASE_DIR, 'public', 'media', 'files')
+
 # Создаём директорию для логов, если её нет
-os.makedirs(settings.LOG_DIR, exist_ok=True)
+if settings.LOG_DIR:
+    os.makedirs(settings.LOG_DIR, exist_ok=True)
 
 # Глобальный логгер
 LOG_FILE = os.path.join(settings.LOG_DIR, 'app.log')
 
+# Настройка обработчиков логирования
+handlers = [logging.StreamHandler()]
+if settings.LOG_DIR:
+    handlers.append(logging.FileHandler(LOG_FILE))
+
 logging.basicConfig(
     level=logging.INFO if not settings.DEBUG else logging.DEBUG,  # Включаем DEBUG при разработке
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE),
-        logging.StreamHandler(),
-    ],
+    handlers=handlers,
 )
 
 logger = logging.getLogger("drillize")  # Логгер для всего приложения
 
 # Создание директории, если она не существует
-Path(settings.UPLOAD_DIRECTORY).mkdir(parents=True, exist_ok=True)
+if settings.UPLOAD_DIRECTORY:
+    Path(settings.UPLOAD_DIRECTORY).mkdir(parents=True, exist_ok=True)
 
