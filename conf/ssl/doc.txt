@@ -1,0 +1,5 @@
+# Только сертификат
+sudo certbot certonly --nginx -d retolu.com -d www.retolu.com
+
+# Правит config файл
+sudo certbot --nginx -d retolu.com -d www.retolu.com

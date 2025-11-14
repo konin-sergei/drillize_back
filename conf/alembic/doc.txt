@@ -1,0 +1,21 @@
+alembic init alembic
+
+change
+/my/src/retolu_back/alembic.ini
+sqlalchemy.url = driver://admin:123456@localhost/retolu
+
+alembic revision --autogenerate -m "Initial migration"
+alembic upgrade head
+alembic current
+
+4. Очистить и заново инициализировать Alembic (если нужно)
+Если проблема остаётся, попробуйте удалить каталог migrations и пересоздать его:
+
+rm -rf migrations
+alembic init migrations
+
+
+
+alembic revision --autogenerate --rev-id=003
+# alembic revision -m "init tables" --rev-id=001
+alembic upgrade head

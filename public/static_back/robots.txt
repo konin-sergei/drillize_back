@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /assets/backup/
+Disallow: /assets/import/
+Disallow: /install/
+Disallow: /terms_of_use/
+Disallow: /privacy_policy/
+
+Allow: /
+
+Host: https://retolu.com
+Sitemap: https://retolu.ru/sitemap.xml
+

@@ -1,0 +1,53 @@
+sudo useradd -r -m -d /home/fastapi -s /usr/sbin/nologin fastapi
+
+-r	Создаёт системного пользователя (без полноценного входа в систему, без домашнего каталога в /home, UID < 1000).
+-m	Создаёт домашнюю папку пользователя (в данном случае /home/fastapi).
+-d /home/fastapi	Указывает конкретный путь для домашнего каталога (/home/fastapi).
+-s /usr/sbin/nologin	Отключает возможность входа в систему (запрещает запуск оболочки, например, bash).
+
+
+
+
+# BACK
+# Добавляем пользователя fastapi в группу wotoku
+sudo usermod -aG wotoku fastapi
+
+# Даем права на каталог с бэкендом
+sudo chown -R wotoku:wotoku /var/www/retolu_back/
+sudo chmod -R 750 /var/www/retolu_back/   # fastapi (в группе wotoku) может читать и заходить
+
+# Даем права на логи
+sudo chown -R fastapi:wotoku /var/www/retolu_back/log/
+sudo chmod -R 770 /var/www/retolu_back/log/  # fastapi может писать логи
+
+# Даем права на виртуальное окружение
+sudo chown -R fastapi:wotoku /my/venvs/retolu/
+sudo chmod -R 750 /my/venvs/retolu/
+
+
+FRONT
+# Даем права на каталог с фронтендом
+sudo chown -R wotoku:wotoku /var/www/retolu_front/
+sudo chmod -R 755 /var/www/retolu_front/  # nginx может читать файлы
+
+# Даем права на папку dist (где лежат файлы Vue)
+sudo chmod -R 755 /var/www/retolu_front/dist/
+
+MEDIA
+
+# Даем права на папки static_back и media
+sudo chmod -R 755 /var/www/retolu_back/public/static_back/
+sudo chmod -R 755 /var/www/retolu_back/public/media/
+
+
+RIGHT
+sudo chown -R wotoku:wotoku /var/www/retolu_back/log/
+sudo chown -R fastapi:fastapi /var/www/retolu_back/log/uvicorn.log
+sudo chmod -R 777 /var/www/retolu_back/log/
+
+sudo systemctl restart retolu.uvicorn.service
+sudo systemctl status retolu.uvicorn.service
+
+REQUIREMENTS
+source /my/venvs/retolu/bin/activate
+pip install -r requirements.txt

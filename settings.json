@@ -1,0 +1,7 @@
+{
+  "python.formatting.provider": "black",
+  "python.sortImports.args": ["--profile", "black"],
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "editor.formatOnSave": true
+}

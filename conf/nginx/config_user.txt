@@ -1,0 +1,26 @@
+1. Проверить umask в процессе uvicorn
+Запустите команду, чтобы убедиться, что umask действительно установлен:
+ps aux | grep uvicorn
+
+Затем получите umask для работающего процесса:
+sudo cat /proc/$(pgrep -f "uvicorn main:app")/status | grep Umask
+Должен быть 0002. Если нет, значит, umask не применился.
+
+2. Принудительно задать группу nginx для новых файлов
+Добавьте setgid на каталог, чтобы новые файлы наследовали группу nginx:
+sudo chown -R fastapi:nginx /var/www/retolu_back/public/media
+sudo chmod -R g+s /var/www/retolu_back/public/media
+Это заставит все новые файлы и папки создаваться с группой nginx.
+
+3. Убедиться, что FastAPI использует нужную группу
+Проверьте группы пользователя fastapi:
+
+groups fastapi
+
+Если nginx не входит в список, добавьте:
+sudo usermod -aG nginx fastapi
+
+
+4. Принудительное задание группы в systemd-юните
+Добавьте параметр SupplementaryGroups=nginx в retolu.uvicorn.service:
+SupplementaryGroups=nginx

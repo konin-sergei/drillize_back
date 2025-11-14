@@ -1,0 +1,7 @@
+I am studying English and I need to divide the text into simpler phrases for learning and memorization.
+    The text should not be divided into any additional blocks.
+    Try to make short phrases, but try to avoid making the phrase consist of one word.
+    Try not to make phrases longer than 20 words.
+    Don't correct grammar if there are mistakes and do not delete or change words from the source text.
+    Save various numbers, symbols, and other text data.
+    The number of words (including different numbers, symbols) and the words themselves must be the same as in the original text.

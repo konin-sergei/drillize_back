@@ -1,0 +1,22 @@
+Resource punkt_tab not found.
+Please use the NLTK Downloader to obtain the resource:
+
+
+import nltk
+nltk.data.path.append('/my/venvs/retolu/nltk_data')
+nltk.download('punkt')
+OR
+sudo cp -R /home/wotoku/nltk_data/ /usr/lib/
+
+
+Searched in:
+- '/home/fastapi/nltk_data'
+- '/my/venvs/retolu/nltk_data'
+- '/my/venvs/retolu/share/nltk_data'
+- '/my/venvs/retolu/lib/nltk_data'
+- '/usr/share/nltk_data'
+- '/usr/local/share/nltk_data'
+- '/usr/lib/nltk_data'
+- '/usr/local/lib/nltk_data'
+
+scp wotoku@213.148.5.136:/usr/lib/nltk_data /my/src/retolu_back/conf/nltk

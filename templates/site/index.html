@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block header_content %}
+<div class="p-3 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-3">
+        <h3 class="fw-bold">Подготовься <br>к собеседованию</h3>
+        <p class="col-md-8 mt-1">
+            Самый простой способ получить выше зарплату - лучше быть готов к собеседованию. Практикуйся - это бесплатно.
+        </p>
+        <button class="btn btn-secondary btn" type="button">Зарегистрироваться</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <h6>Язык</h6>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Все</option>
+            <option value="1">Go</option>
+            <option value="2">Java</option>
+            <option value="3">Javascript</option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <h6>Уровень</h6>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Все</option>
+            <option value="1">Junior</option>
+            <option value="2">Middle</option>
+            <option value="3">Senior</option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <h6>Тип собеседования</h6>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Все</option>
+            <option value="1">HR</option>
+            <option value="2">Техническое</option>
+            <option value="2">Финальное</option>
+        </select>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-12 col-md-4">
+        <h6>Компания</h6>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Все</option>
+            <option value="1">Сбербанк</option>
+            <option value="2">Тинькоф</option>
+            <option value="2">VK</option>
+        </select>
+    </div>
+</div>
+
+<div class="row mt-4">
+    {% for course in courses %}
+        <div class="col-md-4 mb-4">
+            <div class="card text-start text-decoration-none h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.field }} / {{ course.grade }}</h5>
+                    <p class="card-text">{{ course.company }}</p>
+                    <p class="card-text">{{ course.name }}</p>
+                    <p class="card-text">{{ course.count }} Вопросов</p>
+                    <p class="card-text">{{ course.section }}</p>
+                    <a href="/courses/{{ course.id }}/start" class="btn btn-outline-secondary" type="button">Перейти</a>
+                </div>
+                <div class="card-footer text-body-secondary d-flex align-items-center">
+                    <span class="text-start">#{{ course.number }}</span>
+                    <span class="flex-grow-1 text-center"></span>
+                    <span class="text-end">{{ course.date }}</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

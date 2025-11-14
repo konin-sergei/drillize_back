@@ -1,0 +1,41 @@
+{
+  "course_info": {
+    "id": 1,
+    "field": "Python",
+    "grade": "Senior",
+    "section": "Системный дизайн",
+    "company": "Сбербанк",
+    "name": "Вопросы python",
+    "count": 32,
+    "image": "course_image.png",
+    "date": "2025.02.01",
+    "rating": 4.25
+  },
+  "queries": {
+    "3": {
+      "id": 3,
+      "name": "Типы данных в python",
+      "text": "Какие есть типы данных в python?",
+      "text_answers": {
+        "3": {
+          "author": "Ответ Ментор Иванов Петр",
+          "answer_text": "Python поддерживает множество различных встроенных типов данных, включая:\n\nЧисла: int, float, и complex.\nСтроки: str.\nСписки: list.\nКортежи: tuple.\nСловари: dict.\nМножества: set.\n\n[Cобеседование Сбербанк youtube](https://youtu.be/QQD-l8Leqog?si=G8pjI3uwaQGYaowi&t=931 \"Подсказка\")\n\n![video_image_1.png](../images/video_image_1.png)"
+        },
+        "5": {
+          "author": "Ответ Ментор Иванов Петр",
+          "answer_text": "Python поддерживает множество различных встроенных типов данных, включая:\n\nЧисла: int, float, и complex.\nСтроки: str.\nСписки: list.\nКортежи: tuple.\nСловари: dict.\nМножества: set.\n\n[Cобеседование Сбербанк youtube](https://youtu.be/QQD-l8Leqog?si=G8pjI3uwaQGYaowi&t=931 \"Подсказка\")\n\n![video_image_1.png](../images/video_image_1.png)"
+        }
+      },
+      "video_answers": {
+        "6": {
+          "author": "Ответ Ментор Иванов Петр",
+          "answer_text": "Python поддерживает множество различных встроенных типов данных, включая:\n\nЧисла: int, float, и complex.\nСтроки: str.\nСписки: list.\nКортежи: tuple.\nСловари: dict.\nМножества: set.\n\n[Cобеседование Сбербанк youtube](https://youtu.be/QQD-l8Leqog?si=G8pjI3uwaQGYaowi&t=931 \"Подсказка\")\n\n![video_image_1.png](../images/video_image_1.png)"
+        },
+        "7": {
+          "author": "Ответ Ментор Иванов Петр",
+          "answer_text": "Python поддерживает множество различных встроенных типов данных, включая:\n\nЧисла: int, float, и complex.\nСтроки: str.\nСписки: list.\nКортежи: tuple.\nСловари: dict.\nМножества: set.\n\n[Cобеседование Сбербанк youtube](https://youtu.be/QQD-l8Leqog?si=G8pjI3uwaQGYaowi&t=931 \"Подсказка\")\n\n![video_image_1.png](../images/video_image_1.png)"
+        }
+      }
+    }
+  }
+}

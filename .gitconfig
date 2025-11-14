@@ -1,0 +1,31 @@
+# .gitconfig
+
+[user]
+    name = Sergey
+    email = konin.sergei@gmail.com
+
+[core]
+    editor = nano  # Можно заменить на nano или code --wait (для VS Code)
+    autocrlf = input  # Для Unix-систем (Linux, macOS)
+
+[color]
+    ui = auto  # Включает цветные подсветки в Git
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    cm = commit -m
+    lg = log --graph --pretty=format:'%C(yellow)%h%Creset - %C(green)%s%Creset %C(blue)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit
+    amend = commit --amend --no-edit
+    unstage = reset HEAD --
+    last = log -1 HEAD
+
+#[push]
+#    default = simple  # Безопасный пуш
+#
+#[pull]
+#    rebase = true  # Использовать rebase вместо merge при git pull
+#
+#[init]
+#    defaultBranch = main  # Устанавливает main как основной бранч

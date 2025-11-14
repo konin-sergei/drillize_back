@@ -1,0 +1,12 @@
+<div class="row mb-4">
+    <div class="col-12">
+        <h5 class="mb-2">Вопросы</h5>
+        {% for key, query in course.queries.items() %}
+            <div>
+            <a href="/courses/{{ course.course_info.id }}/queries/{{ query.id }}">{{ query.name }}</a>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+

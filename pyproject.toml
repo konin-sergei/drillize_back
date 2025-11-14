@@ -1,0 +1,53 @@
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+fix = true  # Оставляем тут, так как это не относится к линтингу
+
+# Указываем, что анализировать только файлы в /src
+include = ["src/**/*.py"]
+
+# Игнорируем тесты и миграции
+exclude = [
+    "tests/",
+    "migrations/",
+    "*.pyi",  # Игнорируем файлы .pyi
+]
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "C90",  # pycodestyle + pyflakes + mccabe
+    "I",  # isort (сортировка импортов)
+    "N",  # PEP8 naming (проверка стиля именования)
+    "B",  # flake8-bugbear (поиск потенциальных багов)
+    "S",  # flake8-bandit (проверка безопасности кода)
+    "UP",  # pyupgrade (рекомендации по обновлению кода)
+]
+
+ignore = [
+    "B008",  # Do not perform function calls in argument defaults
+    "S101",  # Allow use of `assert` in non-production code
+    "E203",
+    "E501"
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["my_project"]  # Импорты из проекта `my_project` считаются первостепенными
+lines-after-imports = 2  # Количество пустых строк после импортов
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]  # Игнорируем проверку `assert` в тестах
+"migrations/*" = ["E501"]  # Длинные строки в миграциях можно игнорировать
+
+[tool.ruff.format]
+docstring-code-format = true  # Форматирование кода внутри docstring
+quote-style = "double"  # Использовать двойные кавычки (можно "single")
+indent-style = "space"  # Использовать пробелы вместо табов
+skip-magic-trailing-comma = false  # Black-style форматирование списков
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"  # Использовать двойные кавычки в строках
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true  # Разрешить `*args: Any`
+mypy-init-return = true  # Проверять, что `__init__` имеет аннотацию `-> None`
+

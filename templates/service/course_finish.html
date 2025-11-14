@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block inline_styles %}
+    {% include "includes/course/course_styles.html" %}
+{% endblock %}
+
+{% block header_content %}
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Все</a></li>
+                    <li class="breadcrumb-item"><a href="/?field={{ course.course_info.field }}">{{ course.course_info.field }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ course.course_info.grade }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="p-3 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-3">
+            <h3 class="fw-bold">Finish</h3>
+        </div>
+    </div>
+    <div class="p-3 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-3">
+            <h3 class="fw-bold">{{ course.course_info.field }} / {{ course.course_info.grade }}</h3>
+            <p class="col-md-8 mt-1"> {{ course.course_info.section }} </p>
+            <p class="col-md-8 mt-1"> {{ course.course_info.company }} </p>
+            <p class="col-md-8 mt-1"> {{ course.course_info.count }} вопросов</p>
+            <p class="col-md-8 mt-1"> {{ course.course_info.date }} </p>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    {% include "includes/course/course_queries_list.html" %}
+{% endblock %}
